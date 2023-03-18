@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Set for Interactions - A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- ... -->
+        <a-asset-items id="tree" src="assets/jungle_tree/scene.gltf" />
+        <a-asset-items id="vine" src="assets/jungle_vine/scene.gltf" />
+        <a-asset-items id="bush" src="assets/tropical_plant/scene.gltf" />
+        <a-asset-items id="stump" src="assets/tree_stump/scene.gltf" />
+        <a-asset-items id="monstera" src="assets/monstera_plant/scene.gltf" />
+        <a-asset-items id="coconut_palm" src="assets/coconut_palm/scene.gltf" />
+        <a-asset-items id="elephant" src="assets/elephant_ear/scene.gltf" />
+        <img
+          id="groundTexture"
+          src="https://as1.ftcdn.net/v2/jpg/02/25/41/16/1000_F_225411654_x8oiXIIYOs6PyFHV0n415PkonhZalsrY.jpg"
+        />
+        <!-- ... -->
+      </a-assets>
+      <a-light
+        type="directional"
+        position="0 72.550 0"
+        rotation="-90 0 0"
+        target="#directionaltarget"
+        castShadow="true"
+        intensity="0.3"
+        angle="180"
+      >
+        <a-entity id="directionaltarget" position="0 0 -5"></a-entity>
+      </a-light>
+      <a-entity
+        light="type: ambient; color: #BBB; intensity: 1.2; castShadow: true"
+      ></a-entity>
+      <a-entity
+        light="type: spot; intensity: 0.84; angle: 180; decay: 0.2; distance: 29.19; castShadow: true"
+        position="3.211 31.63 1.306"
+      ></a-entity>
+
+      <a-box
+        position="-1 0.6 -3"
+        rotation="0 45 0"
+        color="#4CC3D9"
+        event-set__enter="_event: mouseenter; color: #8FF7FF"
+        event-set__leave="_event: mouseleave; color: #4CC3D9"
+      ></a-box>
+
+      <a-sphere
+        position="0 1.35 -5"
+        radius="1.25"
+        color="#EF2D5E"
+        event-set__down="_event: mousedown; scale: 1.2 1.2 1.2"
+        event-set__up="_event: mouseup; scale: 1 1 1"
+        event-set__leave="_event: mouseleave; scale: 1 1 1"
+      ></a-sphere>
+
+      <a-cylinder
+        position="1 0.85 -3"
+        radius="0.5"
+        height="1.5"
+        color="#FFC65D"
+        event-set__enter="_event: mouseenter; _target: #cylinderText; value:'hi'"
+        event-set__leave="_event: mouseleave; _target: #cylinderText;value:'bye'"
+      >
+        <a-text
+          id="cylinderText"
+          value="bye"
+          align="center"
+          color="#FFF"
+          visible="true"
+          position="0 -0.55 0.55"
+          geometry="primitive: plane; width: 1.75"
+          material="color: #333"
+        ></a-text>
+      </a-cylinder>
+
+      <a-plane
+        position="0 .1 -4"
+        rotation="-90 0 0"
+        width="4"
+        height="4"
+        color="#7BC8A4"
+        event-set__down="_event: mousedown; material.wireframe: true"
+        event-set__up="_event: mouseup; material.wireframe: false"
+        event-set__leave="_event: mouseleave; material.wireframe: false"
+      ></a-plane>
+
+      <a-entity gltf-model="#tree" position="-3 0.85 -7"> </a-entity>
+      <a-entity gltf-model="#tree" position="8 0.85 -16"> </a-entity>
+      <a-entity gltf-model="#tree" position="10 0.85 17"> </a-entity>
+      <a-entity gltf-model="#tree" position="-5 0.85 8"> </a-entity>
+      <a-entity gltf-model="#tree" position="18 0.85 4"> </a-entity>
+      <a-entity gltf-model="#tree" position="-8 0.85 5"> </a-entity>
+      <a-entity
+        gltf-model="#vine"
+        position="-7 5 7"
+        rotation="0 45 45"
+        scale="0.005 0.005 0.005"
+      >
+      </a-entity>
+      <a-entity gltf-model="#bush" position="10.182 0 -5.315"></a-entity>
+      <a-entity gltf-model="#bush" position="11.561 0 3.357"></a-entity>
+      <a-entity gltf-model="#bush" position="-6.849 0 6.078"></a-entity>
+      <a-entity
+        gltf-model="#bush"
+        position="-6.348 0 -3.723"
+      ></a-entity>
+      <a-entity
+        gltf-model="#stump"
+        position="-8.06 0 -2.611"
+        rotation="0 45 0"
+      ></a-entity>
+      <a-entity gltf-model="#monstera" position="8.294 0 -12.574" scale="3 3 3"></a-entity> 
+      <a-entity gltf-model="#monstera" position="-9.684 0 -9.458" scale="3 3 3"></a-entity>
+      <a-entity gltf-model="#monstera" position="13.62 0 14.15" scale="3 3 3"></a-entity>
+      ></a-entity>
+
+      <a-entity gltf-model="#coconut_palm" position="-10.60797 0 10.57657"></a-entity>
+      <a-entity gltf-model="#coconut_palm" position="-13.83373 0 -14.58937" scale="2 2 2" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#coconut_palm" position="1 0 15.99879" scale="2 2 2"></a-entity>
+      <a-entity gltf-model="#coconut_palm" position="11.90001 0 -11.49527" scale="2 2 2"></a-entity>
+      
+      <a-entity id="1" gltf-model="#elephant" position="-12.09239 1.5 3.23323" scale="2 2 2"></a-entity>
+      <a-entity id="2" gltf-model="#elephant" position="4.89232 1.5 14.60004" scale="2 2 2"></a-entity>
+      <a-entity id="3" gltf-model="#elephant" position="-2.01784 1.5 -11.84771" scale="2 2 2"></a-entity>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <a-sky color="gray"></a-sky>
+      <a-plane
+        src="#groundTexture"
+        rotation="-90 0 0"
+        width="45"
+        height="45"
+      ></a-plane>
+      <!-- <a-light type="ambient" color="#fff"></a-light> -->
+    </a-scene>
+  </body>
+</html>
