@@ -1,0 +1,11 @@
+Model Information:
+* title:	Elephant Ear Plant
+* source:	https://sketchfab.com/3d-models/elephant-ear-plant-9cd6cf1553844d4999530f8916991cef
+* author:	BANDANNA (https://sketchfab.com/BAND_ANNA)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Elephant Ear Plant" (https://sketchfab.com/3d-models/elephant-ear-plant-9cd6cf1553844d4999530f8916991cef) by BANDANNA (https://sketchfab.com/BAND_ANNA) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
