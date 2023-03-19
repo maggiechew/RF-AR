@@ -16,6 +16,7 @@
         <a-asset-items id="monstera" src="assets/monstera_plant/scene.gltf" />
         <a-asset-items id="coconut_palm" src="assets/coconut_palm/scene.gltf" />
         <a-asset-items id="elephant" src="assets/elephant_ear/scene.gltf" />
+        <video id="myvideo" autoplay loop="true" src="assets/fireworks.mp4"></video>
         <img
           id="groundTexture"
           src="https://as1.ftcdn.net/v2/jpg/02/25/41/16/1000_F_225411654_x8oiXIIYOs6PyFHV0n415PkonhZalsrY.jpg"
@@ -128,6 +129,8 @@
       <a-entity id="2" gltf-model="#elephant" position="4.89232 1.5 14.60004" scale="2 2 2"></a-entity>
       <a-entity id="3" gltf-model="#elephant" position="-2.01784 1.5 -11.84771" scale="2 2 2"></a-entity>
 
+      <a-video src="#myvideo" width="3" height="1.5" position="0 5 -5"></a-video>
+
       <a-camera>
         <a-cursor></a-cursor>
       </a-camera>
@@ -139,7 +142,6 @@
         width="45"
         height="45"
       ></a-plane>
-      <!-- <a-light type="ambient" color="#fff"></a-light> -->
     </a-scene>
   </body>
 </html>
