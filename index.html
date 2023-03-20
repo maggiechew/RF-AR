@@ -177,22 +177,21 @@
       <a-entity id="1" gltf-model="#elephant" position="-12.09239 1.5 3.23323" scale="2 2 2"></a-entity>
       <a-entity id="2" gltf-model="#elephant" position="4.89232 1.5 14.60004" scale="2 2 2"></a-entity>
       <a-entity id="3" gltf-model="#elephant" position="-2.01784 1.5 -11.84771" scale="2 2 2"></a-entity>
-<a-entity></a-entity>
-      <a-video src="#myvideo" width="3" height="1.5" position="-4 3 0" rotation="20 90 0" 
-      >
-      <a-text
-      id="videoText"
-      value="Press the button to play \nor pause a video!"
-      wrap-count="55"
-      align="center"
-      color="#FFF"
-      visible="true"
-      position="-1 -1.5 0.55"
-      geometry="primitive: plane; width: 2; height: 1"
-      material="color: #333"
-      >
-      <a-image id="videoControls" src="#play" position="2 0 0" play-pause></a-image></a-text>
-    </a-video>
+
+      <a-video src="#myvideo" width="3" height="1.5" position="-4 3 0" rotation="20 90 0">
+        <a-text
+        id="videoText"
+        value="Press the button to play \nor pause a video!"
+        wrap-count="55"
+        align="center"
+        color="#FFF"
+        visible="true"
+        position="-1 -1.5 0.55"
+        geometry="primitive: plane; width: 2; height: 1"
+        material="color: #333">
+          <a-image id="videoControls" src="#play" position="2 0 0" play-pause></a-image>
+        </a-text>
+      </a-video>
 
     <!-- <a-entity material="shader: flat; src: #videoBunny"
     geometry="primitive: plane; width: 4; height: 3;"
@@ -202,6 +201,7 @@
     visible="true">
 </a-entity> -->
 
+<!-- interact with objects in the world - the pointer -->
       <a-camera>
         <a-cursor></a-cursor>
       </a-camera>
