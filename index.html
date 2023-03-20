@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Event Set for Interactions - A-Frame</title>
+    <title>Rainforest POC - A-Frame</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script> -->
+    <script>
+        AFRAME.registerComponent('play-pause', {
+            init: function () {
+                let theVideo= document.querySelector('#myvideo');
+                let videoControls = document.querySelector('#videoControls');
+                this.el.addEventListener('click', function () {
+                    if (theVideo.paused) {
+                        theVideo.play();
+                        videoControls.setAttribute('src', '#pause')
+                    } else {
+                        theVideo.pause();
+                        videoControls.setAttribute('src', '#play')
+                    }
+                })
+            }
+        })
+
+
+    </script>
   </head>
   <body>
-    <a-scene>
+    <a-scene loading-screen="dotsColor: red; backgroundColor: black">
       <a-assets>
-        <!-- ... -->
+        
+        <img id="play" src="assets/play.png" />
+        <img id="pause" src="assets/pause.png" />
+
+        
+
         <a-asset-items id="tree" src="assets/jungle_tree/scene.gltf" />
         <a-asset-items id="vine" src="assets/jungle_vine/scene.gltf" />
         <a-asset-items id="bush" src="assets/tropical_plant/scene.gltf" />
@@ -16,11 +41,34 @@
         <a-asset-items id="monstera" src="assets/monstera_plant/scene.gltf" />
         <a-asset-items id="coconut_palm" src="assets/coconut_palm/scene.gltf" />
         <a-asset-items id="elephant" src="assets/elephant_ear/scene.gltf" />
-        <video id="myvideo" autoplay loop="true" src="assets/fireworks.mp4"></video>
-        <img
+        <video id="myvideo" loop="true" src="assets/fireworks.mp4"></video>
+        <video
+          id="videoBunny"
+          preload="auto"
+          src="https://cdn.aframe.io/videos/bunny.mp4"
+          width="160"
+          height="90"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"
+          muted
+        ></video>
+        <video
+          id="videoFireworks"
+          preload="auto"
+          src="https://cdn.aframe.io/videos/fireworks.mp4"
+          width="160"
+          height="90"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"
+          muted
+        ></video>
+         <img
           id="groundTexture"
-          src="https://as1.ftcdn.net/v2/jpg/02/25/41/16/1000_F_225411654_x8oiXIIYOs6PyFHV0n415PkonhZalsrY.jpg"
+          src="https://as2.ftcdn.net/v2/jpg/04/51/82/83/1000_F_451828364_ReFOifBF5mPADPCZscla88YC4Hld29xw.jpg"
         />
+        <img id="skyTexture" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71eeef2d-6d2f-4799-a0d0-469308125783/d6h6gkp-590c6916-43b9-40ff-a650-35518b849ce2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxZWVlZjJkLTZkMmYtNDc5OS1hMGQwLTQ2OTMwODEyNTc4M1wvZDZoNmdrcC01OTBjNjkxNi00M2I5LTQwZmYtYTY1MC0zNTUxOGI4NDljZTIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IFVlxpzCKjJfKT5tXerSgTSddRxq8H81-SMIgkHZLU4" />
         <!-- ... -->
       </a-assets>
       <a-light
@@ -28,19 +76,21 @@
         position="0 72.550 0"
         rotation="-90 0 0"
         target="#directionaltarget"
-        castShadow="true"
-        intensity="0.3"
+        intensity="1"
         angle="180"
-      >
-        <a-entity id="directionaltarget" position="0 0 -5"></a-entity>
+        >
+        <!-- castShadow="true" -->
+        <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
       </a-light>
       <a-entity
-        light="type: ambient; color: #BBB; intensity: 1.2; castShadow: true"
-      ></a-entity>
+        light="type: ambient; color: #BBB; intensity: 1;"
+        ></a-entity>
+        <!-- castShadow: true -->
       <a-entity
-        light="type: spot; intensity: 0.84; angle: 180; decay: 0.2; distance: 29.19; castShadow: true"
+        light="type: spot; intensity: 0.84; angle: 180; decay: 0.2; distance: 29.19;" 
         position="3.211 31.63 1.306"
-      ></a-entity>
+        ></a-entity>
+        <!-- castShadow: true -->
 
       <a-box
         position="-1 0.6 -3"
@@ -128,14 +178,38 @@
       <a-entity id="1" gltf-model="#elephant" position="-12.09239 1.5 3.23323" scale="2 2 2"></a-entity>
       <a-entity id="2" gltf-model="#elephant" position="4.89232 1.5 14.60004" scale="2 2 2"></a-entity>
       <a-entity id="3" gltf-model="#elephant" position="-2.01784 1.5 -11.84771" scale="2 2 2"></a-entity>
+<a-entity></a-entity>
+      <a-video src="#myvideo" width="3" height="1.5" position="-4 3 0" rotation="20 90 0" 
+      >
+      <a-text
+      id="videoText"
+      value="Press the button to play \nor pause a video!"
+      wrap-count="55"
+      align="center"
+      color="#FFF"
+      visible="true"
+      position="-1 -1.5 0.55"
+      geometry="primitive: plane; width: 2; height: 1"
+      material="color: #333"
+      >
+      <a-image id="videoControls" src="#play" position="2 0 0" play-pause></a-image></a-text>
+    </a-video>
 
-      <a-video src="#myvideo" width="3" height="1.5" position="0 5 -5"></a-video>
+    <!-- <a-entity material="shader: flat; src: #videoBunny"
+    geometry="primitive: plane; width: 4; height: 3;"
+    position="4 3 0"
+    rotation="20 270 0"
+    play-on-click
+    visible="true">
+</a-entity> -->
 
       <a-camera>
         <a-cursor></a-cursor>
       </a-camera>
 
-      <a-sky color="gray"></a-sky>
+      <!-- <a-sky color="gray"></a-sky> -->
+      <a-sky src="#skyTexture" rotation="0 270 0"></a-sky>
+      <!-- <a-sky material="shader:gradient;topColor:237 219 30;bottomColor:143 203 250"></a-sky> -->
       <a-plane
         src="#groundTexture"
         rotation="-90 0 0"
