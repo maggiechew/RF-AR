@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <!-- My name is Romell -->
   <head>
     <title>Rainforest POC - A-Frame</title>
     <!-- script imported from a-frame -->
@@ -8,6 +7,7 @@
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
     <!-- <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script> -->
     <script>
+      
         AFRAME.registerComponent('play-pause', {
             init: function () {
                 let theVideo= document.querySelector('#myvideo');
@@ -41,28 +41,6 @@
         <a-asset-items id="coconut_palm" src="assets/coconut_palm/scene.gltf" />
         <a-asset-items id="elephant" src="assets/elephant_ear/scene.gltf" />
         <video id="myvideo" loop="true" src="assets/fireworks.mp4"></video>
-        <video
-          id="videoBunny"
-          preload="auto"
-          src="https://cdn.aframe.io/videos/bunny.mp4"
-          width="160"
-          height="90"
-          autoplay
-          loop="true"
-          crossorigin="anonymous"
-          muted
-        ></video>
-        <video
-          id="videoFireworks"
-          preload="auto"
-          src="https://cdn.aframe.io/videos/fireworks.mp4"
-          width="160"
-          height="90"
-          autoplay
-          loop="true"
-          crossorigin="anonymous"
-          muted
-        ></video>
          <img
           id="groundTexture"
           src="https://as2.ftcdn.net/v2/jpg/04/51/82/83/1000_F_451828364_ReFOifBF5mPADPCZscla88YC4Hld29xw.jpg"
